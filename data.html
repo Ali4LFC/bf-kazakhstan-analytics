@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipment Data - BF in Kazakhstan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="audio.js" defer></script>
+  </head>
+  <body data-page="data">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="top-banner">
+      <div class="top-banner-inner">
+        <span class="top-banner-title"
+          >BF in Kazakhstan &mdash; Data Analysis</span
+        >
+        <span class="top-banner-sub"
+          >20 shipment records · searchable explorer · exportable CSV</span
+        >
+        <a
+          class="top-banner-btn"
+          href="https://www.kaggle.com/datasets/techsalerator/business-funding-data-in-kazakhstan/data"
+          target="_blank"
+          rel="noopener"
+          >View Dataset</a
+        >
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <nav class="side-rail" aria-label="Primary">
+        <a class="rail-brand" href="index.html">
+          <span class="brand-mark">BF</span>
+          <span class="rail-brand-copy">
+            <strong>Revenue Pulse AI</strong>
+            <span>Trade Explorer</span>
+          </span>
+        </a>
+
+        <div class="rail-card">
+          <span class="badge">Data explorer</span>
+          <p>
+            Filter by export country, transport mode, currency, and free-text
+            search.
+          </p>
+        </div>
+
+        <div class="rail-nav">
+          <div class="rail-group">
+            <div class="rail-title">Navigation</div>
+            <div class="rail-links">
+              <a class="rail-link" href="index.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 12.5 12 4l9 8.5"></path>
+                  <path d="M5 10.5V20h14v-9.5"></path>
+                </svg>
+                Dashboard
+              </a>
+              <a class="rail-link active" href="data.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16"></path>
+                  <path d="M4 12h16"></path>
+                  <path d="M4 18h16"></path>
+                  <path d="M8 4v16"></path>
+                </svg>
+                Shipment Data
+              </a>
+              <a class="rail-link" href="about.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 10v6"></path>
+                  <path d="M12 7h.01"></path>
+                </svg>
+                About Project
+              </a>
+            </div>
+          </div>
+          <div class="rail-group">
+            <div class="rail-title">Jump to</div>
+            <div class="rail-links">
+              <a class="rail-link" href="#explorer">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m20 20-3.5-3.5"></path>
+                </svg>
+                Filters
+              </a>
+              <a class="rail-link" href="#records">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 4h14v16H5z"></path>
+                  <path d="M9 8h6"></path>
+                  <path d="M9 12h6"></path>
+                  <path d="M9 16h4"></path>
+                </svg>
+                Records
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rail-footer">
+          <div class="rail-card">
+            <div class="rail-meta"><span>Columns</span><b>12</b></div>
+            <div class="rail-meta"><span>Countries</span><b>13</b></div>
+            <div class="rail-meta"><span>CSV export</span><b>Ready</b></div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="app-main">
+        <header class="app-topbar">
+          <button
+            class="icon-btn nav-toggle"
+            type="button"
+            data-nav-toggle
+            aria-expanded="false"
+            aria-label="Open navigation"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 17h16"></path>
+            </svg>
+          </button>
+          <label class="topbar-search" aria-label="Search page">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+            <input
+              data-top-search
+              type="search"
+              placeholder="Search the shipment explorer..."
+              aria-label="Search the shipment explorer"
+            />
+            <kbd>Ctrl K</kbd>
+          </label>
+          <div class="topbar-actions">
+            <span class="topbar-chip"
+              ><span class="dot"></span>Explorer mode</span
+            >
+            <button
+              class="icon-btn"
+              type="button"
+              data-audio-panel-toggle
+              aria-label="Open sound controls"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 10v4"></path>
+                <path d="M9 8v8"></path>
+                <path d="M13 5v14"></path>
+                <path d="M17 8v8"></path>
+                <path d="M21 10v4"></path>
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              type="button"
+              data-theme-toggle
+              aria-pressed="false"
+              aria-label="Switch theme"
+            >
+              <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.9 4.9 1.4 1.4"></path>
+                <path d="m17.7 17.7 1.4 1.4"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m4.9 19.1 1.4-1.4"></path>
+                <path d="m17.7 6.3 1.4-1.4"></path>
+              </svg>
+              <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <main id="main" class="container">
+          <section class="page-hero reveal">
+            <div class="page-hero-copy">
+              <span class="badge">20 rows · 12 visible columns</span>
+              <h1>Shipment Data Explorer</h1>
+              <p class="section-sub">
+                Browse the actual shipment records, apply filters, sort columns,
+                and export the current selection to CSV without losing any
+                original rows.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#explorer">Open Explorer</a>
+                <a class="btn btn-ghost" href="index.html">Back to Dashboard</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <img
+                src="assets/hero-data.jpg"
+                alt="Data explorer interface visual"
+              />
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="grid grid-wide">
+              <div class="gif-card reveal">
+                <img
+                  src="assets/data_rows.gif"
+                  alt="Animated rows of shipment records loading"
+                />
+                <p>Shipment records loading into the dataset flow</p>
+              </div>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Dataset snapshot</h3>
+                    <p class="panel-sub">
+                      Quick context before you dive into the table.
+                    </p>
+                  </div>
+                </div>
+                <div class="stat-rows">
+                  <div class="stat-row"><span>Total rows</span><b>20</b></div>
+                  <div class="stat-row">
+                    <span>Export countries</span><b>13</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Transport modes</span><b>3</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Available currencies</span><b>4</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Total value</span><b>$529,789.75</b>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="explorer" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Explorer</span>
+                <h2>Search, sort, filter, and export</h2>
+                <p class="section-sub">
+                  The explorer stays lightweight and runs on the real preserved
+                  shipment records only.
+                </p>
+              </div>
+            </div>
+
+            <form class="filters reveal" onsubmit="return false;">
+              <div class="field">
+                <label for="shipmentSearch">Search</label>
+                <div class="search-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-3.5-3.5"></path>
+                  </svg>
+                  <input
+                    id="shipmentSearch"
+                    class="input"
+                    type="search"
+                    placeholder="Importer, supplier, country, product..."
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="countryFilter">Export country</label>
+                <select id="countryFilter" class="select">
+                  <option value="all">All countries</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="transportFilter">Transport</label>
+                <select id="transportFilter" class="select">
+                  <option value="all">All modes</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="currencyFilter">Currency</label>
+                <select id="currencyFilter" class="select">
+                  <option value="all">All currencies</option>
+                </select>
+              </div>
+
+              <div class="field field-actions">
+                <button id="clearFilters" class="btn btn-ghost" type="button">
+                  Clear Filters
+                </button>
+                <button id="exportCsv" class="btn btn-primary" type="button">
+                  Export CSV
+                </button>
+              </div>
+            </form>
+
+            <div class="explorer-bar reveal">
+              <div id="resultsCount" class="results-count">
+                <b>20</b> matching shipment records
+              </div>
+              <div id="pager" class="pager" aria-label="Pagination"></div>
+            </div>
+
+            <div id="records" class="table-wrap reveal">
+              <table>
+                <thead>
+                  <tr>
+                    <th
+                      class="sortable"
+                      data-sort="date"
+                      aria-sort="descending"
+                    >
+                      Date
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="importerName"
+                      aria-sort="none"
+                    >
+                      Importer
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="supplierName"
+                      aria-sort="none"
+                    >
+                      Supplier
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="exportCountry"
+                      aria-sort="none"
+                    >
+                      Export Country
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="originCountry"
+                      aria-sort="none"
+                    >
+                      Origin Country
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="productDescription"
+                      aria-sort="none"
+                    >
+                      Product Description
+                    </th>
+                    <th
+                      class="sortable num"
+                      data-sort="quantity"
+                      aria-sort="none"
+                    >
+                      Quantity
+                    </th>
+                    <th class="sortable" data-sort="unit" aria-sort="none">
+                      Unit
+                    </th>
+                    <th
+                      class="sortable num"
+                      data-sort="totalValueUsd"
+                      aria-sort="none"
+                    >
+                      Total Value USD
+                    </th>
+                    <th class="sortable" data-sort="currency" aria-sort="none">
+                      Currency
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="modeOfTransport"
+                      aria-sort="none"
+                    >
+                      Transport
+                    </th>
+                    <th
+                      class="sortable"
+                      data-sort="portOfUnloading"
+                      aria-sort="none"
+                    >
+                      Port
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="shipmentRows"></tbody>
+              </table>
+            </div>
+
+            <div id="emptyState" class="empty-state reveal" aria-live="polite">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m20 20-3.5-3.5"></path>
+                <path d="M8.5 8.5l5 5"></path>
+                <path d="m13.5 8.5-5 5"></path>
+              </svg>
+              <h3>No matching records</h3>
+              <p>
+                Try widening the search text or resetting the active filters.
+              </p>
+              <button
+                class="btn btn-ghost"
+                type="button"
+                onclick="document.getElementById('clearFilters').click()"
+              >
+                Reset Explorer
+              </button>
+            </div>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <div class="footer-inner">
+            <div>
+              <div class="footer-brand">
+                BF in Kazakhstan &mdash; Data Analysis
+              </div>
+              <p class="footer-note">
+                The explorer preserves all 20 shipment rows and lets you export
+                any filtered subset as CSV directly in the browser.
+              </p>
+            </div>
+            <div class="footer-links">
+              <a href="index.html">Dashboard</a>
+              <a href="data.html">Shipment Data</a>
+              <a href="about.html">About Project</a>
+              <a
+                href="https://www.kaggle.com/datasets/techsalerator/business-funding-data-in-kazakhstan/data"
+                target="_blank"
+                rel="noopener"
+                >Kaggle Dataset</a
+              >
+            </div>
+          </div>
+          <div class="footer-bottom">
+            &copy; <span id="year">2026</span> Ali &middot; Intelligent
+            Information Systems &middot; Built with HTML, CSS, JavaScript, and
+            Web Audio
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

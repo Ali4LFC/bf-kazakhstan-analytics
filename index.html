@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BF in Kazakhstan - Analytics Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="dashboard.js" defer></script>
+    <script src="audio.js" defer></script>
+  </head>
+  <body data-page="dashboard">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="top-banner">
+      <div class="top-banner-inner">
+        <span class="top-banner-title"
+          >BF in Kazakhstan &mdash; Data Analysis</span
+        >
+        <span class="top-banner-sub"
+          >Premium analytics dashboard powered by real shipment records</span
+        >
+        <a
+          class="top-banner-btn"
+          href="https://www.kaggle.com/datasets/techsalerator/business-funding-data-in-kazakhstan/data"
+          target="_blank"
+          rel="noopener"
+          >View Dataset</a
+        >
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <nav class="side-rail" aria-label="Primary">
+        <a class="rail-brand" href="index.html">
+          <span class="brand-mark">BF</span>
+          <span class="rail-brand-copy">
+            <strong>Revenue Pulse AI</strong>
+            <span>Trade Analytics</span>
+          </span>
+        </a>
+
+        <div class="rail-card">
+          <span class="badge">Live dashboard</span>
+          <p>
+            Premium overview of the 20 real shipment records from the Kaggle
+            trade dataset.
+          </p>
+        </div>
+
+        <div class="rail-nav">
+          <div class="rail-group">
+            <div class="rail-title">Overview</div>
+            <div class="rail-links">
+              <a class="rail-link active" href="index.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 12.5 12 4l9 8.5"></path>
+                  <path d="M5 10.5V20h14v-9.5"></path>
+                </svg>
+                Dashboard
+              </a>
+              <a class="rail-link" href="data.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16"></path>
+                  <path d="M4 12h16"></path>
+                  <path d="M4 18h16"></path>
+                  <path d="M8 4v16"></path>
+                </svg>
+                Shipment Data
+              </a>
+              <a class="rail-link" href="about.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 10v6"></path>
+                  <path d="M12 7h.01"></path>
+                </svg>
+                About Project
+              </a>
+            </div>
+          </div>
+
+          <div class="rail-group">
+            <div class="rail-title">Analytics</div>
+            <div class="rail-links">
+              <a class="rail-link" href="#briefing">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16v12H4z"></path>
+                  <path d="m10 9 5 3-5 3z"></path>
+                </svg>
+                Video Briefing
+              </a>
+              <a class="rail-link" href="#charts">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 20V10"></path>
+                  <path d="M12 20V4"></path>
+                  <path d="M19 20v-7"></path>
+                </svg>
+                Charts
+              </a>
+              <a class="rail-link" href="#insights">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 19h16"></path>
+                  <path d="M7 15 11 11l3 3 4-6"></path>
+                </svg>
+                Insights
+              </a>
+              <a class="rail-link" href="#highlights">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.2 6.5 20.2l1-6.2L3 9.6l6.2-.9Z"
+                  ></path>
+                </svg>
+                Highlights
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rail-footer">
+          <div class="rail-card">
+            <div class="rail-meta"><span>Shipments</span><b>20</b></div>
+            <div class="rail-meta"><span>Export countries</span><b>13</b></div>
+            <div class="rail-meta"><span>Theme</span><b>Dynamic</b></div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="app-main">
+        <header class="app-topbar">
+          <button
+            class="icon-btn nav-toggle"
+            type="button"
+            data-nav-toggle
+            aria-expanded="false"
+            aria-label="Open navigation"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 17h16"></path>
+            </svg>
+          </button>
+
+          <label class="topbar-search" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+            <input
+              id="topSearch"
+              data-top-search
+              type="search"
+              placeholder="Search insights, countries, metrics..."
+              aria-label="Search insights"
+            />
+            <kbd>Ctrl K</kbd>
+          </label>
+
+          <div class="topbar-actions">
+            <span class="topbar-chip"
+              ><span class="dot"></span>Live dataset</span
+            >
+            <button
+              class="icon-btn"
+              type="button"
+              data-audio-panel-toggle
+              aria-label="Open sound controls"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 10v4"></path>
+                <path d="M9 8v8"></path>
+                <path d="M13 5v14"></path>
+                <path d="M17 8v8"></path>
+                <path d="M21 10v4"></path>
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              type="button"
+              data-theme-toggle
+              aria-pressed="false"
+              aria-label="Switch theme"
+            >
+              <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.9 4.9 1.4 1.4"></path>
+                <path d="m17.7 17.7 1.4 1.4"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m4.9 19.1 1.4-1.4"></path>
+                <path d="m17.7 6.3 1.4-1.4"></path>
+              </svg>
+              <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <main id="main" class="container">
+          <section class="hero reveal">
+            <div class="hero-copy">
+              <span class="badge"
+                >Kaggle dataset · 20 verified shipment rows</span
+              >
+              <h1 class="hero-title">
+                Transforming Trade Data Into Actionable Insights
+              </h1>
+              <p class="hero-sub">
+                Explore international trade patterns through interactive
+                analytics, shipment intelligence, and data-driven
+                visualizations.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#charts">Explore Dashboard</a>
+                <a class="btn btn-ghost" href="data.html">View Shipment Data</a>
+              </div>
+              <div class="hero-meta">
+                <div class="meta-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16"></path>
+                    <path d="M4 12h16"></path>
+                    <path d="M4 18h10"></path>
+                  </svg>
+                  <span><b>Source:</b> ImportExport Trade data Asia.csv</span>
+                </div>
+                <div class="meta-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v18"></path>
+                    <path d="M3 12h18"></path>
+                  </svg>
+                  <span
+                    ><b>Scope:</b> 13 export countries, 12 origin
+                    countries</span
+                  >
+                </div>
+                <div class="meta-item">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 15 9 10l3 3 8-8"></path>
+                  </svg>
+                  <span
+                    ><b>Accuracy:</b> no fabricated Kazakhstan-only
+                    statistics</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <img
+                src="assets/hero-trade.jpg"
+                alt="Global trade dashboard visual"
+              />
+              <div class="hero-float">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b>$529,789.75</b>
+                  <span>Total declared trade value</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="kpi-grid">
+            <article
+              class="kpi-card reveal"
+              style="--kpi-accent: var(--series-1)"
+            >
+              <div class="kpi-top">
+                <span class="kpi-label">Total Shipments</span>
+                <span class="kpi-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16v10H4z"></path>
+                    <path d="M4 11h16"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" data-count="20" data-format="number">
+                0
+              </div>
+              <p class="kpi-foot">
+                Shipment records preserved from the source table.
+              </p>
+            </article>
+
+            <article
+              class="kpi-card reveal"
+              style="--kpi-accent: var(--series-2)"
+            >
+              <div class="kpi-top">
+                <span class="kpi-label">Total Trade Value</span>
+                <span class="kpi-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v18"></path>
+                    <path
+                      d="M17 7c0-1.7-2.2-3-5-3S7 5.3 7 7s2.2 3 5 3 5 1.3 5 3-2.2 3-5 3-5-1.3-5-3"
+                    ></path>
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="kpi-value"
+                data-count="529789.75"
+                data-format="currency-usd"
+                data-decimals="2"
+              >
+                0
+              </div>
+              <p class="kpi-foot">
+                Real declared shipment value in USD across all 20 rows.
+              </p>
+            </article>
+
+            <article
+              class="kpi-card reveal"
+              style="--kpi-accent: var(--series-3)"
+            >
+              <div class="kpi-top">
+                <span class="kpi-label">Export Countries</span>
+                <span class="kpi-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3a14.5 14.5 0 0 1 0 18"></path>
+                    <path d="M12 3a14.5 14.5 0 0 0 0 18"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" data-count="13" data-format="number">
+                0
+              </div>
+              <p class="kpi-foot">
+                Distinct export origins represented in the dataset.
+              </p>
+            </article>
+
+            <article
+              class="kpi-card reveal"
+              style="--kpi-accent: var(--series-4)"
+            >
+              <div class="kpi-top">
+                <span class="kpi-label">Total Taxes</span>
+                <span class="kpi-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 20h14"></path>
+                    <path d="M7 20V8l5-4 5 4v12"></path>
+                    <path d="M9.5 12h5"></path>
+                    <path d="M9.5 15h5"></path>
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="kpi-value"
+                data-count="20449684.79"
+                data-format="currency-bdt"
+                data-decimals="2"
+              >
+                0
+              </div>
+              <p class="kpi-foot">
+                Aggregate tax amount reported in Bangladeshi Taka.
+              </p>
+            </article>
+          </section>
+
+          <section id="briefing" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Video Briefing</span>
+                <h2>An animated walkthrough of the shipment data</h2>
+                <p class="section-sub">
+                  A 34-second silent briefing rendered directly from the same 20
+                  preserved records that power every chart and KPI below.
+                  Nothing in the video is invented.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-wide">
+              <article class="video-card reveal">
+                <div class="video-frame">
+                  <video
+                    class="video-el"
+                    id="briefingVideo"
+                    poster="assets/briefing-poster.jpg"
+                    preload="metadata"
+                    playsinline
+                    controls
+                    aria-label="Animated data briefing covering total shipments, total trade value, export countries, total taxes, transport modes, and the top export countries by value"
+                  >
+                    <source src="assets/briefing.mp4" type="video/mp4" />
+                    Your browser does not support the video element. The
+                    briefing presents Total Shipments 20, Total Trade Value
+                    $529,789.75, 13 Export Countries, 20,449,684.79 BDT total
+                    taxes, and the transport split of Air 9 / Sea 8 / Road 3.
+                  </video>
+                </div>
+                <div class="video-foot">
+                  <span><b>Silent briefing</b> · 00:34 · 1600×900</span>
+                  <span>Rendered from the real dataset numbers</span>
+                </div>
+              </article>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">What the briefing covers</h3>
+                    <p class="panel-sub">
+                      Six scenes, each reading from verified records.
+                    </p>
+                  </div>
+                  <span class="tag">00:34</span>
+                </div>
+                <div class="stat-rows">
+                  <div class="stat-row">
+                    <span>1 · Total shipments</span><b>20 rows</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>2 · Total trade value</span><b>$529,789.75</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>3 · Export countries</span><b>13</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>4 · Total taxes</span><b>20,449,684.79 BDT</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>5 · Transport modes</span
+                    ><b>Air 9 · Sea 8 · Road 3</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>6 · Top export country value</span
+                    ><b>Belgium $353,876.72</b>
+                  </div>
+                </div>
+                <div class="note" style="margin-top: 16px">
+                  <div>
+                    The video is muted and never autoplays, so it does not
+                    compete with the ambient audio layer or browser autoplay
+                    rules.
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="insights" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Analytics Overview</span>
+                <h2>Balanced dashboard blocks with real trade signals</h2>
+                <p class="section-sub">
+                  The layout follows a premium analytics rhythm: wide overview
+                  cards, compact support panels, and focused visual hierarchy.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-wide">
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Dataset overview</h3>
+                    <p class="panel-sub">
+                      Key statistics extracted from the 20-row shipment sample.
+                    </p>
+                  </div>
+                  <span class="tag">20 rows</span>
+                </div>
+                <div class="stat-rows">
+                  <div class="stat-row">
+                    <span>Average shipment value</span><b>$26,489.49</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Minimum shipment value</span><b>$81.00</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Maximum shipment value</span><b>$353,876.72</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Total quantity</span><b>217,812</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Gross weight</span><b>249,035.58 kg</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>Net weight</span><b>237,810.70 kg</b>
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Top-value shipments</h3>
+                    <p class="panel-sub">
+                      Largest records by declared USD value.
+                    </p>
+                  </div>
+                  <a class="btn btn-quiet" href="data.html">Inspect rows</a>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Importer</th>
+                        <th>Product</th>
+                        <th class="num">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td class="cell-strong">
+                          VITALAC DAIRY AND FOOD INDUSTRIES LIMITED
+                        </td>
+                        <td>BIOMIL 3 GROWING-UP MILK FORMULA</td>
+                        <td class="num">$353,876.72</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td class="cell-strong">
+                          IBCO FOOD INDUSTRIES LIMITED
+                        </td>
+                        <td>MARGARINE (PASTRIFET SK) NPHO</td>
+                        <td class="num">$59,760.00</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td class="cell-strong">
+                          BEXIMCO PHARMACEUTICALS LIMITED
+                        </td>
+                        <td>PH RAW ABSOLUTE ETHANOL</td>
+                        <td class="num">$31,297.06</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td class="cell-strong">MANJU INTERNATIONAL</td>
+                        <td>BETELNUTS (SPLIT)</td>
+                        <td class="num">$28,800.00</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td class="cell-strong">SAIFUL STORE</td>
+                        <td>CAKE MARGARINE</td>
+                        <td class="num">$21,318.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+            </div>
+
+            <div class="grid grid-3" style="margin-top: 20px">
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Country distribution</h3>
+                    <p class="panel-sub">
+                      The Netherlands and India lead the shipment count.
+                    </p>
+                  </div>
+                </div>
+                <div class="mini-list">
+                  <div class="mini-row">
+                    <span>Netherlands</span><b>3</b><span>shipments</span>
+                    <div class="mini-bar"><i style="width: 100%"></i></div>
+                  </div>
+                  <div class="mini-row">
+                    <span>India</span><b>3</b><span>shipments</span>
+                    <div class="mini-bar"><i style="width: 100%"></i></div>
+                  </div>
+                  <div class="mini-row">
+                    <span>Malaysia</span><b>2</b><span>shipments</span>
+                    <div class="mini-bar"><i style="width: 67%"></i></div>
+                  </div>
+                  <div class="mini-row">
+                    <span>United Kingdom</span><b>2</b><span>shipments</span>
+                    <div class="mini-bar"><i style="width: 67%"></i></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Mode and currency mix</h3>
+                    <p class="panel-sub">
+                      Air is the leading mode while EUR dominates by value.
+                    </p>
+                  </div>
+                </div>
+                <div class="stat-rows">
+                  <div class="stat-row"><span>Air shipments</span><b>9</b></div>
+                  <div class="stat-row"><span>Sea shipments</span><b>8</b></div>
+                  <div class="stat-row">
+                    <span>Road shipments</span><b>3</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>USD shipments</span><b>14</b>
+                  </div>
+                  <div class="stat-row">
+                    <span>EUR value share</span><b>$358,972.56</b>
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Importer activity</h3>
+                    <p class="panel-sub">
+                      Most importers appear once; only a few recur.
+                    </p>
+                  </div>
+                </div>
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <b>KARIM TRADERS</b><span>2 shipments</span>
+                  </div>
+                  <div class="activity-item">
+                    <b>SUPREM EXPORT</b><span>2 shipments</span>
+                  </div>
+                  <div class="activity-item">
+                    <b>FOODEX INTERNATIONAL</b><span>2 shipments</span>
+                  </div>
+                  <div class="activity-item">
+                    <b>ZINGELA FORWARDERS</b
+                    ><span>top supplier · 2 shipments</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="highlights" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Highlights</span>
+                <h2>Animated summary cards and preserved motion assets</h2>
+                <p class="section-sub">
+                  The earlier storytelling pieces remain in the experience, now
+                  wrapped in the upgraded premium shell.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-wide">
+              <div class="slider reveal">
+                <div class="slide active">
+                  <h3>Total shipments</h3>
+                  <div class="big-number">20</div>
+                  <p>
+                    Trade shipment records analyzed from the source dataset.
+                  </p>
+                </div>
+                <div class="slide">
+                  <h3>Total trade value</h3>
+                  <div class="big-number">$529,789.75</div>
+                  <p>Declared total value in USD across all rows.</p>
+                </div>
+                <div class="slide">
+                  <h3>Export countries</h3>
+                  <div class="big-number">13</div>
+                  <p>Distinct export partners appearing in the records.</p>
+                </div>
+                <div class="slide">
+                  <h3>Total taxes</h3>
+                  <div class="big-number">20,449,684.79 BDT</div>
+                  <p>Total reported tax amount in Bangladeshi Taka.</p>
+                </div>
+                <div class="slide">
+                  <h3>Leading transport mode</h3>
+                  <div class="big-number">Air</div>
+                  <p>Used for 9 out of the 20 preserved shipments.</p>
+                </div>
+              </div>
+
+              <div class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">
+                      Acquisition-style flow for trade coverage
+                    </h3>
+                    <p class="panel-sub">
+                      A funnel-like layout inspired by the reference, adapted to
+                      actual trade metrics.
+                    </p>
+                  </div>
+                </div>
+                <div class="funnel">
+                  <div class="funnel-stage">
+                    <strong>1. Rows</strong>
+                    <div class="funnel-track">
+                      <div class="funnel-fill" style="--fill: 100%"></div>
+                    </div>
+                    <b>20</b>
+                  </div>
+                  <div class="funnel-stage">
+                    <strong>2. Export countries</strong>
+                    <div class="funnel-track">
+                      <div class="funnel-fill" style="--fill: 65%"></div>
+                    </div>
+                    <b>13</b>
+                  </div>
+                  <div class="funnel-stage">
+                    <strong>3. Origin countries</strong>
+                    <div class="funnel-track">
+                      <div class="funnel-fill" style="--fill: 60%"></div>
+                    </div>
+                    <b>12</b>
+                  </div>
+                  <div class="funnel-stage">
+                    <strong>4. Ports</strong>
+                    <div class="funnel-track">
+                      <div class="funnel-fill" style="--fill: 15%"></div>
+                    </div>
+                    <b>3</b>
+                  </div>
+                </div>
+                <div class="slider-controls">
+                  <button class="btn btn-quiet" type="button" data-slide="-1">
+                    Previous
+                  </button>
+                  <button class="btn btn-quiet" type="button" data-slide="1">
+                    Next
+                  </button>
+                </div>
+                <div class="slider-dots" id="sliderDots"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-tight" style="margin-top: 20px">
+              <div class="gif-card reveal">
+                <img
+                  src="assets/trade_bars.gif"
+                  alt="Animated bar chart of export country trade values"
+                />
+                <p>Top export countries by trade value</p>
+              </div>
+              <div class="gif-card reveal">
+                <img
+                  src="assets/transport_donut.gif"
+                  alt="Animated donut chart of transport modes"
+                />
+                <p>Distribution of transport modes</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="charts" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Charts</span>
+                <h2>Seven upgraded Chart.js visualizations</h2>
+                <p class="section-sub">
+                  Every chart from the original project is preserved, restyled,
+                  exportable, and synchronized with dark and light themes.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-wide">
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">Export Countries</h3>
+                    <p class="chart-desc">
+                      Shipment count by export country across all records.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="exportChart"
+                      aria-label="Export export countries chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas">
+                  <canvas
+                    id="exportChart"
+                    aria-label="Export countries bar chart"
+                  ></canvas>
+                </div>
+                <div class="chart-foot">
+                  The Netherlands and India each appear three times, making them
+                  the most frequent export origins.
+                </div>
+              </article>
+
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">Origin Countries</h3>
+                    <p class="chart-desc">
+                      Origin country distribution based on preserved shipment
+                      rows.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="originChart"
+                      aria-label="Export origin countries chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas">
+                  <canvas
+                    id="originChart"
+                    aria-label="Origin countries bar chart"
+                  ></canvas>
+                </div>
+                <div class="chart-foot">
+                  Origin geography is similarly concentrated around the
+                  Netherlands and India, followed by Malaysia, France, South
+                  Africa, and the UK.
+                </div>
+              </article>
+
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">Mode of Transport</h3>
+                    <p class="chart-desc">
+                      Transport mix of air, sea, and road shipments.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="transportChart"
+                      aria-label="Export transport chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas">
+                  <canvas
+                    id="transportChart"
+                    aria-label="Transport mode chart"
+                  ></canvas>
+                </div>
+                <div class="chart-foot">
+                  Air transport leads with 9 shipments, closely followed by sea
+                  with 8, while road is used for 3 plant-focused records.
+                </div>
+              </article>
+
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">Port of Unloading</h3>
+                    <p class="chart-desc">
+                      Distribution of destination ports in the source rows.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="portChart"
+                      aria-label="Export port chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas">
+                  <canvas
+                    id="portChart"
+                    aria-label="Port of unloading chart"
+                  ></canvas>
+                </div>
+                <div class="chart-foot">
+                  Dhaka and Chittagong dominate the destination split, with
+                  Jessore appearing only in road-transported plant shipments.
+                </div>
+              </article>
+
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">Total Value by Export Country</h3>
+                    <p class="chart-desc">
+                      Declared USD value aggregated per export country.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="valueChart"
+                      aria-label="Export trade value chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas tall">
+                  <canvas
+                    id="valueChart"
+                    aria-label="Trade value by export country chart"
+                  ></canvas>
+                </div>
+                <div class="chart-foot">
+                  Belgium stands far above the rest due to one exceptionally
+                  large infant milk formula shipment.
+                </div>
+              </article>
+
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">Currency Distribution</h3>
+                    <p class="chart-desc">
+                      USD-equivalent value breakdown by transaction currency.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="currencyChart"
+                      aria-label="Export currency distribution chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas">
+                  <canvas
+                    id="currencyChart"
+                    aria-label="Currency distribution chart"
+                  ></canvas>
+                </div>
+                <div class="chart-foot">
+                  EUR accounts for the largest share of total value because the
+                  highest-value shipment is denominated in euros.
+                </div>
+              </article>
+
+              <article class="chart-card reveal">
+                <div class="chart-card-head">
+                  <div>
+                    <h3 class="chart-title">HS Code Chapters</h3>
+                    <p class="chart-desc">
+                      Product category mix based on shipment chapter groupings.
+                    </p>
+                  </div>
+                  <div class="chart-tools">
+                    <button
+                      class="chart-btn"
+                      type="button"
+                      data-export-target="hsChart"
+                      aria-label="Export HS chapter chart"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 20h14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-canvas">
+                  <canvas id="hsChart" aria-label="HS chapter chart"></canvas>
+                </div>
+                <div class="chart-foot">
+                  Beverages, live animals, and plant-related chapters make up
+                  the majority of the observed shipment composition.
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <div class="footer-inner">
+            <div>
+              <div class="footer-brand">
+                BF in Kazakhstan &mdash; Data Analysis
+              </div>
+              <p class="footer-note">
+                A premium static analytics website built with HTML, CSS,
+                Chart.js, and a preserved 20-row trade dataset from Kaggle.
+              </p>
+            </div>
+            <div class="footer-links">
+              <a href="index.html">Dashboard</a>
+              <a href="data.html">Shipment Data</a>
+              <a href="about.html">About Project</a>
+              <a
+                href="https://www.kaggle.com/datasets/techsalerator/business-funding-data-in-kazakhstan/data"
+                target="_blank"
+                rel="noopener"
+                >Kaggle Dataset</a
+              >
+            </div>
+          </div>
+          <div class="footer-bottom">
+            &copy; <span id="year">2026</span> Ali &middot; Intelligent
+            Information Systems &middot; Built with HTML, CSS, JavaScript,
+            Chart.js, and Web Audio
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

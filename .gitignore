@@ -1,0 +1,7 @@
+# Local share packages: zipped copies of the pages, not needed on the live site
+.trae-html-share-packages/
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store

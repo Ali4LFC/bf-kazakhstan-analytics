@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - BF in Kazakhstan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <script src="audio.js" defer></script>
+  </head>
+  <body data-page="about">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="top-banner">
+      <div class="top-banner-inner">
+        <span class="top-banner-title">BF in Kazakhstan &mdash; Data Analysis</span>
+        <span class="top-banner-sub">Project overview · methodology · stack · limitations</span>
+        <a
+          class="top-banner-btn"
+          href="https://www.kaggle.com/datasets/techsalerator/business-funding-data-in-kazakhstan/data"
+          target="_blank"
+          rel="noopener"
+          >View Dataset</a
+        >
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <nav class="side-rail" aria-label="Primary">
+        <a class="rail-brand" href="index.html">
+          <span class="brand-mark">BF</span>
+          <span class="rail-brand-copy">
+            <strong>Revenue Pulse AI</strong>
+            <span>Project Story</span>
+          </span>
+        </a>
+
+        <div class="rail-card">
+          <span class="badge">About page</span>
+          <p>Presentation layer for the project narrative, workflow, findings, and technical stack.</p>
+        </div>
+
+        <div class="rail-nav">
+          <div class="rail-group">
+            <div class="rail-title">Navigation</div>
+            <div class="rail-links">
+              <a class="rail-link" href="index.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12.5 12 4l9 8.5"></path><path d="M5 10.5V20h14v-9.5"></path></svg>
+                Dashboard
+              </a>
+              <a class="rail-link" href="data.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M8 4v16"></path></svg>
+                Shipment Data
+              </a>
+              <a class="rail-link active" href="about.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v6"></path><path d="M12 7h.01"></path></svg>
+                About Project
+              </a>
+            </div>
+          </div>
+          <div class="rail-group">
+            <div class="rail-title">Sections</div>
+            <div class="rail-links">
+              <a class="rail-link" href="#workflow">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h7v5H4z"></path><path d="M13 13h7v5h-7z"></path><path d="M11 8h4l2 5"></path></svg>
+                Workflow
+              </a>
+              <a class="rail-link" href="#stack">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5Z"></path><path d="m4 12 8 4.5 8-4.5"></path><path d="m4 16.5 8 4.5 8-4.5"></path></svg>
+                Technology Stack
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rail-footer">
+          <div class="rail-card">
+            <div class="rail-meta"><span>Author</span><b>Ali</b></div>
+            <div class="rail-meta"><span>Course</span><b>IIS</b></div>
+            <div class="rail-meta"><span>Architecture</span><b>Static</b></div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="app-main">
+        <header class="app-topbar">
+          <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Open navigation">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+          </button>
+          <label class="topbar-search" aria-label="Search page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+            <input data-top-search type="search" placeholder="Search project sections..." aria-label="Search project sections" />
+            <kbd>Ctrl K</kbd>
+          </label>
+          <div class="topbar-actions">
+            <span class="topbar-chip"><span class="dot"></span>Project brief</span>
+            <button class="icon-btn" type="button" data-audio-panel-toggle aria-label="Open sound controls">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4"></path><path d="M9 8v8"></path><path d="M13 5v14"></path><path d="M17 8v8"></path><path d="M21 10v4"></path></svg>
+            </button>
+            <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch theme">
+              <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.9 4.9 1.4 1.4"></path><path d="m17.7 17.7 1.4 1.4"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m4.9 19.1 1.4-1.4"></path><path d="m17.7 6.3 1.4-1.4"></path></svg>
+              <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+            </button>
+          </div>
+        </header>
+
+        <main id="main" class="container">
+          <section class="page-hero reveal">
+            <div class="page-hero-copy">
+              <span class="badge">Methodology &amp; findings</span>
+              <h1>About the Project</h1>
+              <p class="section-sub">
+                A premium static analytics presentation built to analyze real trade shipment records while staying honest about the dataset limits.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="index.html">Explore Dashboard</a>
+                <a class="btn btn-ghost" href="data.html">View Records</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <img src="assets/hero-team.jpg" alt="Project presentation visual" />
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="grid grid-wide">
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Project Overview</h3>
+                    <p class="panel-sub">What this website is and what it is not.</p>
+                  </div>
+                </div>
+                <p>
+                  This website analyzes the <strong>Business Funding Data in Kazakhstan</strong> dataset from Kaggle using a premium multi-page static dashboard. The goal is to present shipment patterns, value distribution, logistics structure, and dataset limitations in a polished analytical format.
+                </p>
+                <div class="note note-accent" style="margin-top: 16px">
+                  <div>
+                    <b>Important limitation:</b> the CSV title mentions Kazakhstan, but the actual preserved records do not provide verified Kazakhstan-specific funding data. The visible rows mainly reflect broader Asian trade activity and Bangladesh-related shipment entries.
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Dataset Description</h3>
+                    <p class="panel-sub">Source and content profile.</p>
+                  </div>
+                </div>
+                <div class="stat-rows">
+                  <div class="stat-row"><span>Name</span><b>Business Funding Data in Kazakhstan</b></div>
+                  <div class="stat-row"><span>File</span><b>ImportExport Trade data Asia.csv</b></div>
+                  <div class="stat-row"><span>Rows used</span><b>20 shipment entries</b></div>
+                  <div class="stat-row"><span>Columns in source</span><b>38 fields</b></div>
+                  <div class="stat-row"><span>Source</span><b>Kaggle / techsalerator</b></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="workflow" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Workflow</span>
+                <h2>From raw dataset to interactive dashboard</h2>
+                <p class="section-sub">The workflow mirrors a real analytics delivery chain while staying fully static in the browser.</p>
+              </div>
+            </div>
+
+            <div class="workflow reveal">
+              <div class="wf-step"><div class="wf-num">1</div><h4>Dataset</h4><p>Kaggle CSV with shipment records and trade metadata.</p></div>
+              <div class="wf-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+              <div class="wf-step"><div class="wf-num">2</div><h4>Data Processing</h4><p>Selection and normalization of real preserved rows for the website.</p></div>
+              <div class="wf-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+              <div class="wf-step"><div class="wf-num">3</div><h4>Statistical Analysis</h4><p>Aggregation of countries, transport modes, values, and top shipments.</p></div>
+              <div class="wf-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+              <div class="wf-step"><div class="wf-num">4</div><h4>Chart Generation</h4><p>Chart.js visual layer with export, legends, and theme-aware styling.</p></div>
+              <div class="wf-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+              <div class="wf-step"><div class="wf-num">5</div><h4>Website Dashboard</h4><p>Premium multi-page UI with filters, audio layer, and responsive layout.</p></div>
+              <div class="wf-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+              <div class="wf-step"><div class="wf-num">6</div><h4>User Insights</h4><p>Interactive exploration for presentation and portfolio use.</p></div>
+            </div>
+          </section>
+
+          <section id="stack" class="section">
+            <div class="section-head reveal">
+              <div>
+                <span class="eyebrow">Technology Stack</span>
+                <h2>Tools used to build the experience</h2>
+                <p class="section-sub">The stack remains lightweight and fully aligned with the original static architecture.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-3">
+              <article class="stack-card reveal" style="--stack-accent: var(--series-1)">
+                <div class="stack-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"></path><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></div>
+                <div><h4>HTML5</h4><p>Semantic structure for the multi-page dashboard, explorer, and project presentation.</p></div>
+              </article>
+              <article class="stack-card reveal" style="--stack-accent: var(--series-2)">
+                <div class="stack-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 12 2-2 14-8 2-2-18Z"></path><path d="m9 8 6 1"></path><path d="m8.5 12 5.5 1"></path><path d="m8 16 5 1"></path></svg></div>
+                <div><h4>CSS3</h4><p>Token-based design system, dark and light themes, glass surfaces, layout grid, and motion polish.</p></div>
+              </article>
+              <article class="stack-card reveal" style="--stack-accent: var(--series-3)">
+                <div class="stack-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8c0-2 1.8-3 4-3s4 1 4 3-1.8 3-4 3-4 1-4 3 1.8 3 4 3 4-1 4-3"></path><path d="M12 3v18"></path></svg></div>
+                <div><h4>JavaScript</h4><p>Theme toggle, chart lifecycle, filters, sorting, CSV export, animations, and audio interactions.</p></div>
+              </article>
+              <article class="stack-card reveal" style="--stack-accent: var(--series-4)">
+                <div class="stack-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10"></path><path d="M12 20V4"></path><path d="M19 20v-7"></path></svg></div>
+                <div><h4>Chart.js</h4><p>Seven preserved analytical charts with responsive containers, legends, tooltips, and export options.</p></div>
+              </article>
+              <article class="stack-card reveal" style="--stack-accent: var(--series-5)">
+                <div class="stack-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18v-2a4 4 0 0 1 4-4h4"></path><path d="M12 6h6v6"></path><path d="m18 6-8 8"></path></svg></div>
+                <div><h4>Python</h4><p>Used earlier in the workflow to generate animated GIF assets and custom audio resources.</p></div>
+              </article>
+              <article class="stack-card reveal" style="--stack-accent: var(--series-6)">
+                <div class="stack-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4"></path><path d="M9 8v8"></path><path d="M13 5v14"></path><path d="M17 8v8"></path><path d="M21 10v4"></path></svg></div>
+                <div><h4>Web Audio</h4><p>Optional ambient soundtrack, click sounds, recorder support, saved preferences, and unobtrusive controls.</p></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="grid grid-wide">
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Key Findings</h3>
+                    <p class="panel-sub">Observed directly from the real preserved rows.</p>
+                  </div>
+                </div>
+                <ul class="list-check">
+                  <li>The dataset spans 13 export countries and 12 origin countries.</li>
+                  <li>The Netherlands and India are the most frequent export partners with 3 shipments each.</li>
+                  <li>Air transport appears most often with 9 shipments, followed closely by sea with 8.</li>
+                  <li>The largest shipment is the Belgium-linked infant formula row worth $353,876.72.</li>
+                  <li>Total declared value across the 20 rows is $529,789.75 USD.</li>
+                </ul>
+              </article>
+
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Limitations</h3>
+                    <p class="panel-sub">Interpret the dashboard carefully.</p>
+                  </div>
+                </div>
+                <ul class="list-check">
+                  <li>The visible sample contains only 20 shipment rows, so it is a compact analytical subset rather than a broad market census.</li>
+                  <li>The dataset name references Kazakhstan, but the actual rows do not verify Kazakhstan-specific funding activity.</li>
+                  <li>Several financial aggregates are carried from the original analysis and not every source metric is visible at row level in the explorer.</li>
+                  <li>This project focuses on presentation quality and analytical honesty within a static website architecture.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="grid grid-wide">
+              <div class="gif-card reveal">
+                <img src="assets/network_pulse.gif" alt="Animated network pulse representing global trade connections" />
+                <p>Illustration of the global trade relationships reflected in the records</p>
+              </div>
+              <article class="panel reveal">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="panel-title">Author Information</h3>
+                    <p class="panel-sub">Prepared for presentation and portfolio use.</p>
+                  </div>
+                </div>
+                <p>
+                  <strong>Ali</strong> — 4th-year student in Intelligent Information Systems. This project combines data storytelling, static frontend engineering, chart design, responsive UI, and audio-driven microinteractions for a stronger university presentation.
+                </p>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <div class="footer-inner">
+            <div>
+              <div class="footer-brand">BF in Kazakhstan &mdash; Data Analysis</div>
+              <p class="footer-note">
+                A project presentation page describing the dataset source, workflow, technology stack, findings, and analytical boundaries.
+              </p>
+            </div>
+            <div class="footer-links">
+              <a href="index.html">Dashboard</a>
+              <a href="data.html">Shipment Data</a>
+              <a href="about.html">About Project</a>
+              <a
+                href="https://www.kaggle.com/datasets/techsalerator/business-funding-data-in-kazakhstan/data"
+                target="_blank"
+                rel="noopener"
+                >Kaggle Dataset</a
+              >
+            </div>
+          </div>
+          <div class="footer-bottom">
+            &copy; <span id="year">2026</span> Ali &middot; Intelligent Information Systems &middot; Built with HTML, CSS, JavaScript, Chart.js, and Web Audio
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
